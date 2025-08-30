@@ -1,0 +1,39 @@
+name: Daily Website Smoke Check
+
+on:
+  schedule:
+    - cron: "30 1 * * *"   # 01:30 UTC = 07:00 IST (Asia/Kolkata)
+  workflow_dispatch:        # allow manual runs from the Actions tab
+  push:
+    branches: [ main ]      # optional: run on pushes for quick feedback
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci || npm i
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run tests (save outputs)
+        run: npx playwright test --output=test-results
+
+      # Always upload artifacts (reports, screenshots, traces) so you can debug
+      - name: Upload Playwright artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            test-results
+            playwright-report
