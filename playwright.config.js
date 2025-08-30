@@ -3,7 +3,7 @@ const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
   timeout: 30_000,
-  retries: 1, // a tiny bit of flake resistance
+  retries: 1,
   use: {
     baseURL: 'https://gitalife.co.in',
     headless: true,
@@ -15,6 +15,6 @@ module.exports = defineConfig({
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
   ],
   projects: [
-    { name: 'chromium', use: { browserName: 'chromium' } }, // keep it fast & simple
+    { name: 'chromium', use: { browserName: 'chromium' } }
   ],
 });
