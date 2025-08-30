@@ -10,7 +10,7 @@ These tests provide a minimal, automated daily check to ensure key pages (Home, 
 
 ---
 ## 📂 Files & Structure
-
+```
 gitalife-IT/
 ├── playwright.config.js # Playwright configuration
 ├── package.json # Defines dependencies & test scripts
@@ -19,7 +19,7 @@ gitalife-IT/
 └── .github/
 └── workflows/
 └── daily-check.yml # GitHub Actions workflow (daily run)
-
+```
 ---
 
 ##  Setup & Deployment
@@ -59,20 +59,3 @@ gitalife-IT/
 
 - If any check fails, **Playwright** fails the suite, and **GitHub Actions** alerts you and archives test artifacts for inspection.
 
----
-
-##  Optional: Alerts via Slack or Telegram
-
-To supplement GitHub email alerts, you can add a step in the workflow for Slack or Telegram notifications. Available if you add your webhook URL or bot token & chat ID as GitHub secrets.
-
----
-
-##  Summary
-
-- **Free** daily checks for your important pages  
-- Clear pass/fail status with debugging data  
-- Easy to maintain and extend—just add test cases for new pages!
-
----
-
-Let me know if you'd like to include a ready-made optional Slack or Telegram alert snippet or help extend it with more test scenarios!
