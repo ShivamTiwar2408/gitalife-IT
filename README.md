@@ -9,17 +9,16 @@ Automated daily smoke tests for [gitalife.co.in], powered by Playwright and GitH
 These tests provide a minimal, automated daily check to ensure key pages (Home, Volunteer, Contact, Blog) on your site are loading correctly and contain expected content. If any test fails, the workflow will fail—triggering alerts and generating artifacts (screenshots, reports) for debugging.
 
 ---
+## 📂 Files & Structure
 
-##  Files & Structure
-
-/playwright.config.js ← Playwright configuration
-/tests/smoke.spec.js ← Core smoke test scenarios
-/.github/workflows/ ← GitHub Actions workflow files
-└ daily-check.yml ← Scheduler for daily test runs
-package.json ← Defines dependencies & test scripts
-
-yaml
-Copy code
+gitalife-IT/
+├── playwright.config.js # Playwright configuration
+├── package.json # Defines dependencies & test scripts
+├── tests/ # Test files
+│ └── smoke.spec.js # Core smoke test scenarios
+└── .github/
+└── workflows/
+└── daily-check.yml # GitHub Actions workflow (daily run)
 
 ---
 
